@@ -781,3 +781,67 @@ function pairwise(arr, arg) {
     });
     return sumOfindxs;
 }
+
+//callback examp from https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd#.9z1nzogkr
+//http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
+//generic reportOrders() that shows order to func
+function reportOrders(minionOrders){
+  if(typeof minionOrders === "string"){
+    console.log(minionOrders);
+  }
+  else if (typeof minionOrders === "object"){
+    for(var item in minionOrders){
+      console.log(item+": "+minionOrders[item]);
+    }
+  }
+}
+
+//func that takes 2 params, the 2nd=callback function
+function speakOrders(orders,callback){
+  callback(orders);
+}
+
+// When we call the speakOrders function, we pass reportOrders as a parameter.
+// So reportOrders will be the function that will called back (or executed) inside the speakOrders 
+
+speakOrders({name:"chris", loves:"maddie"}, reportOrders);
+
+function packBox(item){
+  //put item in box
+  console.log("put "+ item +  " in the box");
+  // The addressPackage() function is a closure! It can be called at any time after the        packBox function has been called. It also has access to the variables and arguments      from the time when packBox() was originally called.
+  function addressPackage(address){
+    //write label
+    console.log("addressed the box to "+address+ " and ready to send the "+item+" gift");
+  }
+  
+  return addressPackage;
+}
+
+var maddiesBdayGift=packBox("makeup");
+
+maddiesBdayGift("home address");
+
+//Put makeup in the box 
+// Addressed the box to home address and ready to send the makeup gift 
+
+
+var brotherGift = packBox('jersey');
+var motherGift = packBox('iTunesCard');
+var fatherGift = packBox('golfclubs');
+var sisterGift = packBox('lacrossestick');
+
+brotherGift('123 Main Street, Anywhere USA 01234');
+//Put jersey in the box
+// Addressed the box to 123 Main Street, Anywhere USA 01234 and ready to send the jersey gift
+motherGift('123 High Street, Los Angeles USA 01234');
+//Put iTunesCard in the box
+// Addressed the box to 123 High Street, Los Angeles USA 01234 and ready to send the iTunesCard gift
+fatherGift('123 Upper East Street, New York City NY 01234');
+//Put golfclubs in the box
+// Addressed the box to 123 Upper East Street, New York City NY 01234 and ready to send the golfclubs gift
+sisterGift('123 Top Street, Chicago IL 01234');
+//Put lacrossestick in the box
+// Addressed the box to 123 Top Street, Chicago IL 01234 and ready to send the lacrossestick gift
+
+//example from https://medium.freecodecamp.com/javascript-closures-explained-by-mailing-a-package-4f23e9885039#.ioz582jlq
