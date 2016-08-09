@@ -153,4 +153,46 @@ while (match = number.exec(input))
 /$/ End of input 
 */
 
+// Fill in the regular expressions
 
+verify(/ca[rt]/,   // chars in range
+       ["my car", "bad cats"],
+       ["camper", "high art"]);
+
+verify(/pr?op/,  // r is optional
+       ["pop culture", "mad props"],
+       ["plop"]);
+
+verify(/ferr(et|y|ari)/,  //optional groups 
+       ["ferret", "ferry", "ferrari"],
+       ["ferrum", "transfer A"]);
+
+verify(/ious\b/,  //ends in ious uses b (boundary)
+       ["how delicious", "spacious room"],
+       ["ruinous", "consciousness"]);
+
+verify(/\s[.,:;]/,  //A whitespace character followed by a dot, comma, colon, or semicolon 
+       ["bad punctuation ."],
+       ["escape the dot"]);
+
+verify(/\w{7,}/, // word longer than 6 letters
+       ["hottentottententen"],
+       ["no", "hotten totten tenten"]);
+
+verify(/\b[a-df-z]+\b/i, //A word without the letter e 
+       ["red platypus", "wobbling nest"],
+       ["earth bed", "learning ape"]);
+
+
+function verify(regexp, yes, no) {
+  // Ignore unfinished exercises
+  if (regexp.source == "...") return;
+  yes.forEach(function(s) {
+    if (!regexp.test(s))
+      console.log("Failure to match '" + s + "'");
+  });
+  no.forEach(function(s) {
+    if (regexp.test(s))
+      console.log("Unexpected match for '" + s + "'");
+  });
+}
