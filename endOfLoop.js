@@ -73,7 +73,40 @@ var data = [2, 4, 6];
 var reducer = function(accumulator, item) {
     return accumulator + item;
 };
-var inititalValue=0;
+var inititalValue = 0;
 var total = data.reduce(reducer, inititalValue);
 
 console.log(total);
+
+/*
+    reduce object data 
+ */
+
+var votes = [
+    "angular",
+    "angular", ,
+    "react",
+    "angular",
+    "angular",
+    "react",
+    "vanilla",
+    "react",
+    "ember",
+    "react"
+];
+
+var initVal = {};
+
+var voteReducer = function(tally, vote) {
+    if (!tally[vote]) {
+        tally[vote] = 1;
+    } else {
+        tally[vote] = tally[vote] + 1;
+    }
+
+    return tally;
+};
+
+var result = votes.reduce(voteReducer, initVal);
+
+console.log(result);
