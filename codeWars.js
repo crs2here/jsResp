@@ -28,30 +28,72 @@ Example Output
 
 //wrapping this in function to keep var, and func names local.
 var usingMap = {
-    tc1: [ [45, 12],[55, 21],[19, -2],[104, 20]],
-    tc2: [[3, 12],[55, 1],[91, -2],[54, 23]],
-    tc3: [[59, 12],[55, -1],[12, -2],[12, 12]],
+    tc1: [
+        [45, 12],
+        [55, 21],
+        [19, -2],
+        [104, 20]
+    ],
+    tc2: [
+        [3, 12],
+        [55, 1],
+        [91, -2],
+        [54, 23]
+    ],
+    tc3: [
+        [59, 12],
+        [55, -1],
+        [12, -2],
+        [12, 12]
+    ],
     openOrSenior: function(data) {
         return data.map(function(element) {
             return (element[0] >= 55 && element[1] > 7) ? 'Senior' : 'Open';
         });
     }, // other soultions to problem
     openOrSenior1: function(data) {
-        function determineMembership(member) {
-            return (member[0] >= 55 && member[1] > 7) ? 'Senior' : 'Open';
+            function determineMembership(member) {
+                return (member[0] >= 55 && member[1] > 7) ? 'Senior' : 'Open';
+            }
+            return data.map(determineMembership);
         }
-        return data.map(determineMembership);
-    }/*,
-    openOrSenior2: function(data) {
-        return data.map([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
-        // Destructuring: [age, handicap] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-        // Arrow Functions: () => {} https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-    }*/
+        /*,
+            openOrSenior2: function(data) {
+                return data.map([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+                // Destructuring: [age, handicap] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+                // Arrow Functions: () => {} https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+            }*/
 };
 //access object details to run
 console.log(usingMap.openOrSenior(usingMap.tc1));
 
-
 /*
+    INS
+        Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+
+    Example
+        doubleChar("String") ==> "SSttrriinngg"
     
+        doubleChar("Hello World") ==> "HHeelllloo  WWoorrlldd"
+    
+        doubleChar("1234!_ ") ==> "11223344!!__  "
 */
+
+//for each example-> does something to every element of an array
+//still working on this
+var DoubleChar = {
+    tc1: "abcd",
+    tc2: "illuminati",
+    tc3: "123456",
+    doubleChar: function(str) {
+        var tempArr=str.split("");
+        var curr =tempArr[0]+tempArr[0];
+        return tempArr.reduce(function(prev, curr) {
+            return prev.concat(curr+curr);
+            
+        });
+    }
+};
+console.log(DoubleChar.doubleChar(DoubleChar.tc1));
+console.log(DoubleChar.doubleChar(DoubleChar.tc2));
+console.log(DoubleChar.doubleChar(DoubleChar.tc3));
