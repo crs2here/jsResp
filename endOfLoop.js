@@ -66,3 +66,14 @@ var stocks = exchanges.concatAll();
 stocks.forEach(function(stock) {
     console.log(JSON.stringify(stock));
 });
+
+// transforming arrays with reduce
+var data = [2, 4, 6];
+
+var reducer = function(accumulator, item) {
+    return accumulator + item;
+};
+var inititalValue=0;
+var total = data.reduce(reducer, inititalValue);
+
+console.log(total);
