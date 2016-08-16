@@ -845,3 +845,34 @@ sisterGift('123 Top Street, Chicago IL 01234');
 // Addressed the box to 123 Top Street, Chicago IL 01234 and ready to send the lacrossestick gift
 
 //example from https://medium.freecodecamp.com/javascript-closures-explained-by-mailing-a-package-4f23e9885039#.ioz582jlq
+
+// convert node list to an array=> this is done to use built in array functions
+const nodeList= document.querySelectorAll('div');
+const nodeListToArray = Array.apply(null, nodeList);
+// es6 can use spread operator const nodelist = [...document.querySelectorAll('div')]; 
+
+/* 
+now can be used like this
+    nodelistToArray.forEach(...);
+    nodelistToArray.map(...);
+    nodelistToArray.slice(...);
+    etc...
+The apply method is used to pass an array of arguments to a function with a given this value. 
+MDN states that apply will take an array-like object, which is exactly what querySelectorAll 
+returns. Since we don’t need to specify a value for this in the context of the function, 
+we pass in null or 0. The result is an actual array of DOM elements which contains all of the available array methods.
+
+Alternatively you can use Array.prototype.slice combined with Function.prototype.call or
+Function.prototype.apply passing the array-like object as the value of this:
+    
+    
+*/
+
+
+
+
+
+
+
+
+
