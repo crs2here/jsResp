@@ -99,13 +99,8 @@ console.log(DoubleChar.doubleChar(DoubleChar.tc2));
 console.log(DoubleChar.doubleChar(DoubleChar.tc3));
 
 // spin words codewars challenge
-function spinWords(str){
-  
- function revStr(val) { 
-   return val.split('').reverse().join('');
- } 
 
-  
+function spinWords(str){
   return str.split(" ").map(function (el){
       return (el.length>=5? el.split('').reverse().join(''): el); 
   }).join(" ");
