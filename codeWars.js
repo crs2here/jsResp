@@ -79,21 +79,21 @@ console.log(usingMap.openOrSenior(usingMap.tc1));
         doubleChar("1234!_ ") ==> "11223344!!__  "
 */
 
-//for each example-> does something to every element of an array
-//still working on this
 var DoubleChar = {
     tc1: "abcd",
     tc2: "illuminati",
     tc3: "123456",
     doubleChar: function(str) {
-        var tempArr=str.split("");
-        var curr =tempArr[0]+tempArr[0];
-        return tempArr.reduce(function(prev, curr) {
-            return prev.concat(curr+curr);
-            
-        });
+      var tmp=str.split("").      //split string into chars
+      map(function(el){           //map to new array and duplicating char
+        return (el+el);
+      });
+      return tmp.join("");        //return array as join str
+ 
     }
 };
+
+
 console.log(DoubleChar.doubleChar(DoubleChar.tc1));
 console.log(DoubleChar.doubleChar(DoubleChar.tc2));
 console.log(DoubleChar.doubleChar(DoubleChar.tc3));
