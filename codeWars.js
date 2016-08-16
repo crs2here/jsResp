@@ -84,11 +84,11 @@ var DoubleChar = {
     tc2: "illuminati",
     tc3: "123456",
     doubleChar: function(str) {
-      var tmp=str.split("").      //split string into chars
+     return str.split("").      //split string into chars
       map(function(el){           //map to new array and duplicating char
         return (el+el);
-      });
-      return tmp.join("");        //return array as join str
+      }).join("");        //return array as join str;
+     
  
     }
 };
@@ -97,3 +97,18 @@ var DoubleChar = {
 console.log(DoubleChar.doubleChar(DoubleChar.tc1));
 console.log(DoubleChar.doubleChar(DoubleChar.tc2));
 console.log(DoubleChar.doubleChar(DoubleChar.tc3));
+
+// spin words codewars challenge
+function spinWords(str){
+  
+ function revStr(val) { 
+   return val.split('').reverse().join('');
+ } 
+
+  
+  return str.split(" ").map(function (el){
+      return (el.length>=5? el.split('').reverse().join(''): el); 
+  }).join(" ");
+}
+console.log(spinWords("Hey fellow warriors"));
+//"Hey wollef sroirraw"
