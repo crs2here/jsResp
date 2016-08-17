@@ -84,13 +84,17 @@ var DoubleChar = {
     tc2: "illuminati",
     tc3: "123456",
     doubleChar: function(str) {
-     return str.split("").      //split string into chars
-      map(function(el){           //map to new array and duplicating char
-        return (el+el);
-      }).join("");        //return array as join str;
-     
- 
-    }
+        return str.split(""). //split string into chars
+        map(function(el) { //map to new array and duplicating char
+            return (el + el);
+        }).join(""); //return array as join str;
+
+
+    },
+    cleverDoubleChar: function doubleChar(str) {
+        return str.replace(/(.)/g, "$1$1");
+    },
+    //arrowDoubleChar let doubleChar=s=>s.replace(/(.)/g,"$1$1"); 
 };
 
 
@@ -100,10 +104,10 @@ console.log(DoubleChar.doubleChar(DoubleChar.tc3));
 
 // spin words codewars challenge
 
-function spinWords(str){
-  return str.split(" ").map(function (el){
-      return (el.length>=5? el.split('').reverse().join(''): el); 
-  }).join(" ");
+function spinWords(str) {
+    return str.split(" ").map(function(el) {
+        return (el.length >= 5 ? el.split('').reverse().join('') : el);
+    }).join(" ");
 }
 console.log(spinWords("Hey fellow warriors"));
 //"Hey wollef sroirraw"
