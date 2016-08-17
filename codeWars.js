@@ -3,7 +3,7 @@ The Western Suburbs Croquet Club has two categories of membership, Senior and Op
 They would like your help with an application form that will tell prospective members
 which category they will be placed.
 
-To be a senior, a member must be at least 55 years old and have a handicap greater 
+To be a senior, a member must be at least 55 years old and hgitave a handicap greater 
 than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
 
 Input
@@ -65,7 +65,7 @@ var usingMap = {
             }*/
 };
 //access object details to run
-console.log(usingMap.openOrSenior(usingMap.tc1));
+//console.log(usingMap.openOrSenior(usingMap.tc1));
 
 /*
     INS
@@ -98,9 +98,9 @@ var DoubleChar = {
 };
 
 
-console.log(DoubleChar.doubleChar(DoubleChar.tc1));
-console.log(DoubleChar.doubleChar(DoubleChar.tc2));
-console.log(DoubleChar.doubleChar(DoubleChar.tc3));
+//console.log(DoubleChar.doubleChar(DoubleChar.tc1));
+//console.log(DoubleChar.doubleChar(DoubleChar.tc2));
+//console.log(DoubleChar.doubleChar(DoubleChar.tc3));
 
 // spin words codewars challenge
 
@@ -109,5 +109,5 @@ function spinWords(str) {
         return (el.length >= 5 ? el.split('').reverse().join('') : el);
     }).join(" ");
 }
-console.log(spinWords("Hey fellow warriors"));
+//console.log(spinWords("Hey fellow warriors"));
 //"Hey wollef sroirraw"
