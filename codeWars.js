@@ -233,3 +233,23 @@ console.log(seven(times(five())));
 console.log(four(plus(nine())));
 console.log(eight(minus(three())));
 console.log(six(dividedBy(two())));
+
+/*
+Replace With Alphabet Position
+given a string, replace every letter with its position in the alphabet.
+If anything in the text isn't a letter, ignore it and don't return it. 
+a being 1, b being 2, etc. As an example:
+alphabet_position("The sunset sets at twelve o' clock.")
+Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" (As a string.)
+*/
+function alphabetPosition(text){
+  //split alpha into array
+  var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  //transform arg for matching by uppercase, and removing non alpha chars
+  return text.toUpperCase().replace(/[^A-Z]/g,"").split("").map(function(cv,index){    //left off here
+    return alpha.indexOf(cv)>-1?(alpha.indexOf(cv)+1):"";
+  }).join(" "); 
+
+}
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock"));
