@@ -111,3 +111,71 @@ function spinWords(str) {
 }
 //console.log(spinWords("Hey fellow warriors"));
 //"Hey wollef sroirraw"
+
+/*
+function that can take any non-negative integer as a argument and
+return it with it's digits in descending order. Descending order means 
+that you take the highest digit and place the next highest digit 
+immediately after it.
+*/
+// this is the clunky way I did it
+function descendingOrder(n) {
+    var numArray = n.toString().split("").sort(reverseComp).toString().replace(/,/g, "");
+    return Number(numArray);
+
+    function reverseComp(a, b) {
+        return b - a;
+    }
+}
+// this is better
+function aBetterDecendingOrder(n) {
+    return parseInt(String(n).split('').sort().reverse().join(''));
+}
+
+/*
+create three functions that one needs to be able to call upon an array:
+  1. all-This function returns true only if the predicate supplied returns true for all the items in the array
+  ex.
+    [1, 2, 3].all(isGreaterThanZero) => true
+    [-1, 0, 2].all(isGreaterThanZero) => false
+  2.none-This function returns true only if the predicate supplied returns false for all the items in the array  
+  ex.
+    [-1, 2, 3].none(isLessThanZero) => false
+    [-1, -2, -3].none(isGreaterThanZero) => true
+  3.any-This function returns true if at least one of the items in the array returns true for the predicate supplied    
+  ex.
+    [-1, 2, 3].any(isGreaterThanZero) => true
+    [-1, -2, -3].any(isGreaterThanZero) => false  
+*/
+
+function isGreaterThanZero(num) {
+    return num > 0;
+}
+
+function isLessThanZero(num) {
+    return num < 0;
+}
+
+
+Array.prototype.all = function(p) {
+    return this.filter(p).length == this.length;
+};
+console.log("all");
+console.log([1, 2, 3].all(isGreaterThanZero)); //=> true
+console.log([-1, 0, 2].all(isGreaterThanZero)); //=> false
+
+Array.prototype.none = function(p) {
+    return this.filter(p).length == 0;
+};
+
+console.log("none");
+console.log([-1, 2, 3].none(isLessThanZero)); // => false
+console.log([-1, -2, -3].none(isGreaterThanZero)); // => true
+
+
+Array.prototype.any = function(p) {
+    return this.filter(p).length > 0;
+};
+console.log("any");
+console.log([-1, 2, 3].any(isGreaterThanZero)); //true
+console.log([-1, -2, -3].any(isGreaterThanZero)); //false
