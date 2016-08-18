@@ -196,11 +196,6 @@ Requirements:
 •Each calculation consist of exactly one operation and two numbers
 •The most outer function represents the left operand, the most inner function represents the right operand
 */
-
-//var five =(exp)=>calc(5,exp);
-
-//var calc =(num,exp)=>exp==undefined?num:exp(num);
-
 let zero =(exp)=>calc(0,exp);
 let one =(exp)=>calc(1,exp);
 let two =(exp)=>calc(2,exp);
@@ -212,26 +207,29 @@ let seven =(exp)=>calc(7,exp);
 let eight =(exp)=>calc(8,exp);
 let nine =(exp)=>calc(9,exp);
 
-let calc =(num,exp)=>exp==undefined?num:exp(num);
+let calc =(num,exp)=>exp===undefined?num:exp(num);
 
 function times(arg1) { 
   return function(arg2)  { 
-    return arg2 * arg1;  } 
+    return arg2 * arg1;  }; 
 }
 
 function dividedBy(arg1) { 
   return function(arg2)  { 
-    return arg2 / arg1;  } 
+    return arg2 / arg1;  }; 
 }
 
 function minus(arg1) { 
   return function(arg2)  { 
-    return arg2 - arg1;  } 
+    return arg2 - arg1;  }; 
 }
 
 function plus(arg1) { 
   return function(arg2)  { 
-    return arg2 + arg1;  } 
+    return arg2 + arg1;  }; 
 }
 
 console.log(seven(times(five())));
+console.log(four(plus(nine())));
+console.log(eight(minus(three())));
+console.log(six(dividedBy(two())));
