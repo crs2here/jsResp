@@ -253,3 +253,22 @@ function alphabetPosition(text){
 }
 
 console.log(alphabetPosition("The sunset sets at twelve o' clock"));
+
+/*
+Instructions
+
+Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
+
+Example
+Test.assertSimilar( capitals('CodEWaRs'), [0,3,4,6] );
+
+*/
+var capitals = function (word) {
+  return word.split("").map(function(cv,index){
+    return word[index].toUpperCase()===word[index]?index:null;
+  }).filter(function(cv,index){
+    return word[index].toUpperCase()===word[index];   
+  });
+};
+console.log(capitals('CodEWaRs')); // [0,3,4,6]
+
