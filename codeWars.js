@@ -179,3 +179,59 @@ Array.prototype.any = function(p) {
 console.log("any");
 console.log([-1, 2, 3].any(isGreaterThanZero)); //true
 console.log([-1, -2, -3].any(isGreaterThanZero)); //false
+
+/*
+Write calculations using functions & get the results. 
+
+some examples:
+
+  seven(times(five())); // must return 35
+  four(plus(nine())); // must return 13
+  eight(minus(three())); // must return 5
+  six(dividedBy(two())); // must return 3
+
+Requirements:
+•There must be a function for each number from 0 ("zero") to 9 ("nine")
+•There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby)
+•Each calculation consist of exactly one operation and two numbers
+•The most outer function represents the left operand, the most inner function represents the right operand
+*/
+
+//var five =(exp)=>calc(5,exp);
+
+//var calc =(num,exp)=>exp==undefined?num:exp(num);
+
+let zero =(exp)=>calc(0,exp);
+let one =(exp)=>calc(1,exp);
+let two =(exp)=>calc(2,exp);
+let three =(exp)=>calc(3,exp);
+let four =(exp)=>calc(4,exp);
+let five =(exp)=>calc(5,exp);
+let six =(exp)=>calc(6,exp);
+let seven =(exp)=>calc(7,exp);
+let eight =(exp)=>calc(8,exp);
+let nine =(exp)=>calc(9,exp);
+
+let calc =(num,exp)=>exp==undefined?num:exp(num);
+
+function times(arg1) { 
+  return function(arg2)  { 
+    return arg2 * arg1;  } 
+}
+
+function dividedBy(arg1) { 
+  return function(arg2)  { 
+    return arg2 / arg1;  } 
+}
+
+function minus(arg1) { 
+  return function(arg2)  { 
+    return arg2 - arg1;  } 
+}
+
+function plus(arg1) { 
+  return function(arg2)  { 
+    return arg2 + arg1;  } 
+}
+
+console.log(seven(times(five())));
