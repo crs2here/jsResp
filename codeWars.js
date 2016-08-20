@@ -195,7 +195,7 @@ Requirements:
 •There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby)
 •Each calculation consist of exactly one operation and two numbers
 •The most outer function represents the left operand, the most inner function represents the right operand
-
+ES6 way of solving this
 let zero =(exp)=>calc(0,exp);
 let one =(exp)=>calc(1,exp);
 let two =(exp)=>calc(2,exp);
@@ -242,6 +242,97 @@ a being 1, b being 2, etc. As an example:
 alphabet_position("The sunset sets at twelve o' clock.")
 Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" (As a string.)
 */
+// better alternative ways to solve with closures
+var n = function(digit) {
+    return function(op) {
+        return op ? op(digit) : digit;
+    }
+};
+var zero = n(0);
+var one = n(1);
+var two = n(2);
+var three = n(3);
+var four = n(4);
+var five = n(5);
+var six = n(6);
+var seven = n(7);
+var eight = n(8);
+var nine = n(9);
+
+function plus(r) {
+    return function(l) {
+        return l + r;
+    };
+}
+
+function minus(r) {
+    return function(l) {
+        return l - r;
+    };
+}
+
+function times(r) {
+    return function(l) {
+        return l * r;
+    };
+}
+
+function dividedBy(r) {
+    return function(l) {
+        return l / r;
+    };
+}
+
+
+// another way to solve function probelm
+function zero(func) {
+    return func ? func(0) : 0; };
+
+function one(func) {
+    return func ? func(1) : 1; };
+
+function two(func) {
+    return func ? func(2) : 2; };
+
+function three(func) {
+    return func ? func(3) : 3; };
+
+function four(func) {
+    return func ? func(4) : 4; };
+
+function five(func) {
+    return func ? func(5) : 5; };
+
+function six(func) {
+    return func ? func(6) : 6; };
+
+function seven(func) {
+    return func ? func(7) : 7; };
+
+function eight(func) {
+    return func ? func(8) : 8; };
+
+function nine(func) {
+    return func ? func(9) : 9; };
+
+function plus(b) {
+    return function(a) {
+        return a + b; }; };
+
+function minus(b) {
+    return function(a) {
+        return a - b; }; };
+
+function times(b) {
+    return function(a) {
+        return a * b; }; };
+
+function dividedBy(b) {
+    return function(a) {
+        return a / b; }; };
+
+
+
 
 //es 6 version 
 /*
