@@ -195,7 +195,7 @@ Requirements:
 •There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby)
 •Each calculation consist of exactly one operation and two numbers
 •The most outer function represents the left operand, the most inner function represents the right operand
-*/
+
 let zero =(exp)=>calc(0,exp);
 let one =(exp)=>calc(1,exp);
 let two =(exp)=>calc(2,exp);
@@ -233,7 +233,7 @@ console.log(seven(times(five())));
 console.log(four(plus(nine())));
 console.log(eight(minus(three())));
 console.log(six(dividedBy(two())));
-
+*/
 /*
 Replace With Alphabet Position
 given a string, replace every letter with its position in the alphabet.
@@ -242,13 +242,13 @@ a being 1, b being 2, etc. As an example:
 alphabet_position("The sunset sets at twelve o' clock.")
 Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" (As a string.)
 */
-function alphabetPosition(text){
-  //split alpha into array
-  var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  //transform arg for matching by uppercase, and removing non alpha chars
-  return text.toUpperCase().replace(/[^A-Z]/g,"").split("").map(function(cv,index){    //left off here
-    return alpha.indexOf(cv)>-1?(alpha.indexOf(cv)+1):"";
-  }).join(" "); 
+function alphabetPosition(text) {
+    //split alpha into array
+    var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    //transform arg for matching by uppercase, and removing non alpha chars
+    return text.toUpperCase().replace(/[^A-Z]/g, "").split("").map(function(cv, index) { //left off here
+        return alpha.indexOf(cv) > -1 ? (alpha.indexOf(cv) + 1) : "";
+    }).join(" ");
 
 }
 
@@ -263,12 +263,18 @@ Example
 Test.assertSimilar( capitals('CodEWaRs'), [0,3,4,6] );
 
 */
-var capitals = function (word) {
-  return word.split("").map(function(cv,index){
-    return word[index].toUpperCase()===word[index]?index:null;
-  }).filter(function(cv,index){
-    return word[index].toUpperCase()===word[index];   
-  });
+var capitals = function(word) {
+    return word.split("").map(function(cv, index) {
+        return word[index].toUpperCase() === word[index] ? index : null;
+    }).filter(function(cv, index) {
+        return word[index].toUpperCase() === word[index];
+    });
 };
 console.log(capitals('CodEWaRs')); // [0,3,4,6]
 
+// this is a better way to write it (use reduce)
+var betterCapitals = function(word) {
+    return word.split("").reduce(function(memo, v, i) {
+        return v === v.toUpperCase() ? memo.concat(i) : memo;
+    }, []);
+};
