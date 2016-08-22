@@ -38,9 +38,9 @@ console.log(myLikes(["Chris", "Maddie", "Nolan"]));
 console.log(myLikes(["Chris", "Maddie", "Nolan", "Oliver", "Emma"]));
 
 /* 
-    other versions of likes
+ other versions of like
+ this one is pretty similar to what  I did
 */
-// this one is pretty similar to what  I did
 
 function likes(names) {
     names = names || [];
