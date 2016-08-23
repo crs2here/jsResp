@@ -31,12 +31,13 @@ function myLikes(names) {
             return names.join(", ") + " and " + (len - 2) + " others like this";
     }
 }
+/*
 console.log(myLikes([]));
 console.log(myLikes(["Chris"]));
 console.log(myLikes(["Chris", "Maddie"]));
 console.log(myLikes(["Chris", "Maddie", "Nolan"]));
 console.log(myLikes(["Chris", "Maddie", "Nolan", "Oliver", "Emma"]));
-
+*/
 /* 
  other versions of like
  this one is pretty similar to what  I did
@@ -61,3 +62,39 @@ function likes(names) {
             return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
     }
 }
+
+/*
+    Vowel Count
+
+    Return the number (count) of vowels in the given string.
+    We will consider a, e, i, o, and u as vowels for this Kata.
+*/
+
+function getCount(str) {
+    var vowelsCount = 0;
+    var vowels = ["a", "e", "i", "o", "u"];
+    var arr = str.split("");
+
+    for (var index = 0; index < arr.length; index++) {
+        for (var innerInd = 0; innerInd < vowels.length; innerInd++) {
+            if (arr[index] === vowels[innerInd]) {
+                vowelsCount++;
+            }
+        }
+    }
+
+    return vowelsCount;
+}
+
+console.log(getCount("abracadabra")); //5
+//                    1  2 3 4  5
+
+function aBetterGetCount(str) {
+    return (str.match(/[aeiou]/ig) || []).length;
+}
+
+/*
+function getCount(str) {
+  return str.replace(/[^aeiou]/ig, "" ).length
+}
+ */
