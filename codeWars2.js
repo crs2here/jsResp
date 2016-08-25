@@ -47,19 +47,19 @@ function likes(names) {
     names = names || [];
     switch (names.length) {
         case 0:
-            return 'no one likes this';
+            return "no one likes this";
             break;
         case 1:
-            return names[0] + ' likes this';
+            return names[0] + " likes this";
             break;
         case 2:
-            return names[0] + ' and ' + names[1] + ' like this';
+            return names[0] + " and " + names[1] + " like this";
             break;
         case 3:
-            return names[0] + ', ' + names[1] + ' and ' + names[2] + ' like this';
+            return names[0] + ", " + names[1] + " and " + names[2] + " like this";
             break;
         default:
-            return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
+            return names[0] + ", " + names[1] + " and " + (names.length - 2) + " others like this";
     }
 }
 
@@ -93,8 +93,31 @@ function aBetterGetCount(str) {
     return (str.match(/[aeiou]/ig) || []).length;
 }
 
-/*
-function getCount(str) {
-  return str.replace(/[^aeiou]/ig, "" ).length
+
+function getCountReplace(str) {
+    return str.replace(/[^aeiou]/ig, "").length;
 }
+
+/*
+   Unique In Order
+   
+    Description:
+
+    Implement the function unique_in_order which takes as argument
+    a sequence and returns a list of items without any elements with
+    the same value next to each other and preserving the original order of elements.
+
+    For example:
+
+        uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+        uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+        uniqueInOrder([1,2,2,3,3])       == [1,2,3]
  */
+
+var uniqueInOrder = function(iterable) {
+    //your code here - remember iterable can be a string or an array
+};
+
+console.log(uniqueInOrder('AAAABBBCCDAABBB')); //['A', 'B', 'C', 'D', 'A', 'B']
+console.log(uniqueInOrder('ABBCcAD')); //['A', 'B', 'C', 'c', 'A', 'D']
+console.log(uniqueInOrder([1, 2, 2, 3, 3])); //[1,2,3]
