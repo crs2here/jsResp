@@ -86,7 +86,7 @@ function getCount(str) {
     return vowelsCount;
 }
 
-console.log(getCount("abracadabra")); //5
+//console.log(getCount("abracadabra")); //5
 //                    1  2 3 4  5
 
 function aBetterGetCount(str) {
@@ -112,12 +112,59 @@ function getCountReplace(str) {
         uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
         uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
         uniqueInOrder([1,2,2,3,3])       == [1,2,3]
- */
+
 
 var uniqueInOrder = function(iterable) {
     //your code here - remember iterable can be a string or an array
+    if (typeof iterable === "string") {
+        var newArr = [];
+        iterable.split("").forEach(function(val, ind) {
+            if (val !== iterable[ind + 1]) {
+                newArr.push(val);
+            }
+        });
+    } else {
+        return iterable;
+    }
+    return newArr;
+};
+        
+ */
+
+var uniqueInOrder = function(iterable) {
+
+    var newArr = [];
+
+    if (typeof iterable === "string") {
+        iterable = iterable.split("");
+    }
+    iterable.forEach(function(val, ind) {
+        if (val !== iterable[ind + 1]) {
+            newArr.push(val);
+        }
+    });
+    return newArr;
 };
 
+
+
+/*
+
+a more compact version of unique_in_order
+
+var uniqueInOrder = function (iterable){
+  return [].filter.call(iterable, (function (a, i) { return iterable[i - 1] !== a }));
+}
+
+var uniqueInOrder=function(iterable){
+  var res = [];
+  for (var i = 0; i < iterable.length; i++) {
+    if (iterable[i] != iterable[i+1]) res.push(iterable[i]);
+  }
+  return res;
+}
+
+*/
 console.log(uniqueInOrder('AAAABBBCCDAABBB')); //['A', 'B', 'C', 'D', 'A', 'B']
 console.log(uniqueInOrder('ABBCcAD')); //['A', 'B', 'C', 'c', 'A', 'D']
 console.log(uniqueInOrder([1, 2, 2, 3, 3])); //[1,2,3]
